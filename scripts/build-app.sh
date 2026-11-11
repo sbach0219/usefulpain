@@ -20,6 +20,7 @@ mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" "$ROOT/dist"
 cp "$BIN_DIR/usefulpain" "$APP/Contents/MacOS/usefulpain"
 cp "$ROOT/Resources/Info.plist" "$APP/Contents/Info.plist"
 xcrun swift "$ROOT/scripts/make-icon.swift" "$BUILD_DIR/AppIcon.iconset"
+xcrun swift "$ROOT/scripts/verify-icon.swift" "$BUILD_DIR/AppIcon.iconset"
 xcrun iconutil --convert icns "$BUILD_DIR/AppIcon.iconset" --output "$APP/Contents/Resources/AppIcon.icns"
 SIGNING_IDENTITY="${CODE_SIGN_IDENTITY:--}"
 if [[ "$SIGNING_IDENTITY" == "-" ]]; then
